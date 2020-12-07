@@ -1,16 +1,22 @@
-<h1>tweet一覧</h1>
+<header>
+  <h1>tweet一覧</h1>
+</header>
 <table>
   <tr>
     <th>内容</th>
   </tr>
-<% @post.each do |post| %>
+  <% @post.each do |post| %>
   <tr>
     <td><%= post.content %></td>
     <td><%= link_to '詳細を確認する', post_path(post) %></td>
-    <td><%= link_to "ブログを編集する", edit_post_path(post) %></td>
-    <td><%= link_to 'ブログを削除する', post_path(post), method: :delete %></td>
+    <td><%= link_to "つぶやきを編集する", edit_post_path(post) %></td>
+    <td><%= link_to 'つぶやきを削除する', post_path(post), method: :delete %></td>
     <!-- post.idとすることでそのレコードのid値を拾ってくる -->
   </tr>
-<% end %>
+  <% end %>
 </table>
 <%= link_to '新しくつぶやく', new_post_path %>
+
+<footer>
+  <h1>(株)つぶやきしろう</h1>
+</footer>
