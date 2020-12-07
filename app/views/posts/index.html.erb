@@ -8,6 +8,7 @@
     <td><%= post.content %></td>
     <td><%= link_to '詳細を確認する', post_path(post) %></td>
     <td><%= link_to "ブログを編集する", edit_post_path(post) %></td>
+    <td><%= link_to 'ブログを削除する', post_path(post), method: :delete %></td>
     <!-- post.idとすることでそのレコードのid値を拾ってくる -->
   </tr>
 <% end %>

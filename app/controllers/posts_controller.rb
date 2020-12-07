@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   def index
     @post = Post.all
   end
@@ -8,15 +9,12 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to posts_path, notice: "つぶやきを編集しました！"
     else
@@ -25,6 +23,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post.destroy
+    redirect_to posts_path, notice:"あなたのつぶやきを抹殺しました！"
   end
 
   def create
@@ -41,6 +41,12 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:content)
+  end
+
+  private
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 
 end
