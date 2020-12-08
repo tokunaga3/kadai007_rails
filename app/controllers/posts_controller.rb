@@ -31,10 +31,7 @@ class PostsController < ApplicationController
     @post = Post.create(post_params)
     if @post.save
       redirect_to new_post_path
-      # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示します。
     else
-      # 入力フォームを再描画します。
-      # newのアクションにうつる
       render :new
     end
   end
