@@ -6,10 +6,12 @@ default: &default
 development:
   <<: *default
   database: kadai007_rails_development
+
 test:
   <<: *default
   database: kadai007_rails_test
- <%= ENV['DATABASE_URL'] %>
+
+      # <%= ENV['DATABASE_URL'] %>
 production:
   <<: *default
   database: kadai007_rails_production
